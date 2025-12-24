@@ -34,6 +34,7 @@ import Reports from "./pages/dashboard/Reports";
 import Settings from "./pages/dashboard/Settings";
 import UserManagement from "./pages/admin/UserManagement";
 import AgencySettings from "./pages/admin/AgencySettings";
+import ClientDetail from "./pages/dashboard/ClientDetail";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();

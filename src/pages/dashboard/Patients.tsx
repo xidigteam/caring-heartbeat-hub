@@ -1,11 +1,11 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Badge } from '@/components/ui/badge';
 import { Avatar, AvatarFallback } from '@/components/ui/avatar';
 import { Users, Plus, Search, Phone, MapPin } from 'lucide-react';
-
 const patients = [
   { id: 1, name: 'John Smith', status: 'active', phone: '(555) 123-4567', address: '123 Oak Street, City', service: 'Home Health' },
   { id: 2, name: 'Mary Brown', status: 'active', phone: '(555) 234-5678', address: '456 Maple Ave, City', service: 'Personal Care' },

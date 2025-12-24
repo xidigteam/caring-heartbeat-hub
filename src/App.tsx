@@ -17,6 +17,11 @@ import AdultDayCare from "./pages/solutions/AdultDayCare";
 import PrivateDutyNursing from "./pages/solutions/PrivateDutyNursing";
 import GroupHome from "./pages/solutions/GroupHome";
 import NEMT from "./pages/solutions/NEMT";
+import ScheduleDemo from "./pages/ScheduleDemo";
+import PrivacyPolicy from "./pages/legal/PrivacyPolicy";
+import TermsOfService from "./pages/legal/TermsOfService";
+import HIPAACompliance from "./pages/legal/HIPAACompliance";
+import Security from "./pages/legal/Security";
 import Dashboard from "./pages/Dashboard";
 import Schedule from "./pages/dashboard/Schedule";
 import EVV from "./pages/dashboard/EVV";
@@ -53,6 +58,11 @@ const App = () => (
             <Route path="/solutions/private-duty-nursing" element={<PrivateDutyNursing />} />
             <Route path="/solutions/group-home" element={<GroupHome />} />
             <Route path="/solutions/nemt" element={<NEMT />} />
+            <Route path="/schedule-demo" element={<ScheduleDemo />} />
+            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+            <Route path="/terms-of-service" element={<TermsOfService />} />
+            <Route path="/hipaa-compliance" element={<HIPAACompliance />} />
+            <Route path="/security" element={<Security />} />
             <Route path="/dashboard" element={<DashboardLayout />}>
               <Route index element={<Dashboard />} />
               <Route path="schedule" element={<Schedule />} />

@@ -165,9 +165,11 @@ export default function Landing() {
             <Link to="/auth">
               <Button variant="outline" className="hidden sm:inline-flex">Sign In</Button>
             </Link>
-            <Button className="gradient-primary border-0">
-              Schedule Demo
-            </Button>
+            <Link to="/schedule-demo">
+              <Button className="gradient-primary border-0">
+                Schedule Demo
+              </Button>
+            </Link>
             <Button variant="ghost" size="icon" className="md:hidden">
               <Menu className="h-5 w-5" />
             </Button>
@@ -204,14 +206,18 @@ export default function Landing() {
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button size="lg" className="gradient-primary border-0 text-lg px-8 py-6">
-                  Schedule A Demo
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </Button>
-                <Button size="lg" variant="outline" className="text-lg px-8 py-6">
-                  <Play className="mr-2 h-5 w-5" />
-                  Watch Video
-                </Button>
+                <Link to="/schedule-demo">
+                  <Button size="lg" className="gradient-primary border-0 text-lg px-8 py-6 w-full">
+                    Schedule A Demo
+                    <ArrowRight className="ml-2 h-5 w-5" />
+                  </Button>
+                </Link>
+                <Link to="/solutions/evv">
+                  <Button size="lg" variant="outline" className="text-lg px-8 py-6 w-full">
+                    <Play className="mr-2 h-5 w-5" />
+                    Learn More
+                  </Button>
+                </Link>
               </div>
 
               <p className="text-sm text-muted-foreground flex items-center gap-2">
@@ -374,9 +380,11 @@ export default function Landing() {
                 Join thousands of agencies who trust CareFlow to streamline operations and improve care delivery.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button size="lg" variant="secondary" className="text-lg px-8">
-                  Schedule A Demo
-                </Button>
+                <Link to="/schedule-demo">
+                  <Button size="lg" variant="secondary" className="text-lg px-8">
+                    Schedule A Demo
+                  </Button>
+                </Link>
                 <Link to="/auth">
                   <Button size="lg" variant="outline" className="text-lg px-8 bg-transparent border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary">
                     Start Free Trial
@@ -407,37 +415,37 @@ export default function Landing() {
             <div>
               <h4 className="font-semibold mb-4">Product</h4>
               <ul className="space-y-2 text-sidebar-foreground/70">
-                <li><a href="#" className="hover:text-sidebar-foreground transition-colors">Features</a></li>
-                <li><a href="#" className="hover:text-sidebar-foreground transition-colors">Pricing</a></li>
-                <li><a href="#" className="hover:text-sidebar-foreground transition-colors">Case Studies</a></li>
-                <li><a href="#" className="hover:text-sidebar-foreground transition-colors">Updates</a></li>
+                <li><a href="#features" className="hover:text-sidebar-foreground transition-colors">Features</a></li>
+                <li><Link to="/schedule-demo" className="hover:text-sidebar-foreground transition-colors">Pricing</Link></li>
+                <li><Link to="/solutions/evv" className="hover:text-sidebar-foreground transition-colors">EVV Solution</Link></li>
+                <li><Link to="/solutions/automated-billing" className="hover:text-sidebar-foreground transition-colors">Billing</Link></li>
               </ul>
             </div>
 
             <div>
               <h4 className="font-semibold mb-4">Company</h4>
               <ul className="space-y-2 text-sidebar-foreground/70">
-                <li><a href="#" className="hover:text-sidebar-foreground transition-colors">About Us</a></li>
-                <li><a href="#" className="hover:text-sidebar-foreground transition-colors">Careers</a></li>
-                <li><a href="#" className="hover:text-sidebar-foreground transition-colors">Contact</a></li>
-                <li><a href="#" className="hover:text-sidebar-foreground transition-colors">Partners</a></li>
+                <li><Link to="/schedule-demo" className="hover:text-sidebar-foreground transition-colors">About Us</Link></li>
+                <li><Link to="/schedule-demo" className="hover:text-sidebar-foreground transition-colors">Careers</Link></li>
+                <li><Link to="/schedule-demo" className="hover:text-sidebar-foreground transition-colors">Contact</Link></li>
+                <li><Link to="/schedule-demo" className="hover:text-sidebar-foreground transition-colors">Partners</Link></li>
               </ul>
             </div>
 
             <div>
               <h4 className="font-semibold mb-4">Legal</h4>
               <ul className="space-y-2 text-sidebar-foreground/70">
-                <li><a href="#" className="hover:text-sidebar-foreground transition-colors">Privacy Policy</a></li>
-                <li><a href="#" className="hover:text-sidebar-foreground transition-colors">Terms of Service</a></li>
-                <li><a href="#" className="hover:text-sidebar-foreground transition-colors">HIPAA Compliance</a></li>
-                <li><a href="#" className="hover:text-sidebar-foreground transition-colors">Security</a></li>
+                <li><Link to="/privacy-policy" className="hover:text-sidebar-foreground transition-colors">Privacy Policy</Link></li>
+                <li><Link to="/terms-of-service" className="hover:text-sidebar-foreground transition-colors">Terms of Service</Link></li>
+                <li><Link to="/hipaa-compliance" className="hover:text-sidebar-foreground transition-colors">HIPAA Compliance</Link></li>
+                <li><Link to="/security" className="hover:text-sidebar-foreground transition-colors">Security</Link></li>
               </ul>
             </div>
           </div>
 
           <div className="border-t border-sidebar-border pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-sidebar-foreground/60 text-sm">
-              © 2024 CareFlow. All rights reserved.
+              © 2026 CareFlow. All rights reserved.
             </p>
             <div className="flex items-center gap-4">
               <Badge variant="outline" className="border-sidebar-border text-sidebar-foreground/70">

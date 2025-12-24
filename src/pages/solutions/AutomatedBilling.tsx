@@ -4,15 +4,14 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { 
   DollarSign, 
-  Heart, 
-  Phone, 
   CheckCircle2, 
   ArrowRight, 
   FileText,
   TrendingUp,
-  Clock,
-  ChevronRight
+  Clock
 } from 'lucide-react';
+import SolutionHeader from '@/components/layout/SolutionHeader';
+import Footer from '@/components/layout/Footer';
 
 const features = [
   {
@@ -48,42 +47,7 @@ const benefits = [
 export default function AutomatedBilling() {
   return (
     <div className="min-h-screen bg-background">
-      {/* Top Bar */}
-      <div className="bg-sidebar text-sidebar-foreground py-2 px-4">
-        <div className="container mx-auto flex justify-between items-center text-sm">
-          <div className="flex items-center gap-2">
-            <Phone className="h-4 w-4" />
-            <span>Tel: 1-800-CAREFLOW</span>
-          </div>
-          <Link to="/auth" className="hover:text-sidebar-primary transition-colors flex items-center gap-1">
-            <span>Login</span>
-            <ChevronRight className="h-4 w-4" />
-          </Link>
-        </div>
-      </div>
-
-      {/* Navigation */}
-      <header className="sticky top-0 z-50 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b border-border">
-        <div className="container mx-auto px-4 py-4 flex items-center justify-between">
-          <Link to="/" className="flex items-center gap-3">
-            <div className="flex h-10 w-10 items-center justify-center rounded-lg gradient-primary text-primary-foreground">
-              <Heart className="h-6 w-6" />
-            </div>
-            <span className="font-bold text-2xl text-foreground">
-              Care<span className="text-primary">Flow</span>
-            </span>
-          </Link>
-
-          <div className="flex items-center gap-4">
-            <Link to="/">
-              <Button variant="ghost">Back to Home</Button>
-            </Link>
-            <Button className="gradient-primary border-0">
-              Schedule Demo
-            </Button>
-          </div>
-        </div>
-      </header>
+      <SolutionHeader />
 
       {/* Hero Section */}
       <section className="relative overflow-hidden py-20">
@@ -100,12 +64,14 @@ export default function AutomatedBilling() {
               Streamline your revenue cycle with automated claims generation, submission, and payment tracking integrated with your care delivery.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="gradient-primary border-0">
-                Schedule A Demo
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
+              <Link to="/schedule-demo">
+                <Button size="lg" className="gradient-primary border-0 w-full">
+                  Schedule A Demo
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </Button>
+              </Link>
               <Link to="/auth">
-                <Button size="lg" variant="outline">
+                <Button size="lg" variant="outline" className="w-full">
                   Start Free Trial
                 </Button>
               </Link>
@@ -152,10 +118,12 @@ export default function AutomatedBilling() {
                   </li>
                 ))}
               </ul>
-              <Button className="gradient-primary border-0">
-                Learn More
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
+              <Link to="/schedule-demo">
+                <Button className="gradient-primary border-0">
+                  Learn More
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </Button>
+              </Link>
             </div>
             <div className="aspect-video rounded-2xl bg-gradient-to-br from-primary/10 to-accent/10 border border-border flex items-center justify-center">
               <DollarSign className="h-24 w-24 text-primary/50" />
@@ -171,20 +139,15 @@ export default function AutomatedBilling() {
           <p className="text-sidebar-foreground/70 mb-8 max-w-2xl mx-auto">
             Reduce claim denials and accelerate your revenue cycle with CareFlow.
           </p>
-          <Button size="lg" variant="secondary">
-            Schedule A Demo
-          </Button>
+          <Link to="/schedule-demo">
+            <Button size="lg" variant="secondary">
+              Schedule A Demo
+            </Button>
+          </Link>
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-sidebar text-sidebar-foreground py-8 border-t border-sidebar-border">
-        <div className="container mx-auto px-4 text-center">
-          <p className="text-sidebar-foreground/70">
-            © 2024 CareFlow. All rights reserved.
-          </p>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }

@@ -13,12 +13,16 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
-import { Bell, LogOut, Settings, User } from 'lucide-react';
+import { Bell, LogOut, Settings, User, Shield } from 'lucide-react';
 import { Skeleton } from '@/components/ui/skeleton';
+import { useSessionSecurity } from '@/hooks/useSessionSecurity';
+import { SessionTimeoutWarning } from '@/components/security/SessionTimeoutWarning';
+import { Badge } from '@/components/ui/badge';
 
 export function DashboardLayout() {
   const { user, profile, loading, signOut, roles } = useAuth();
   const navigate = useNavigate();
+  const { showTimeoutWarning, timeRemaining, extendSession } = useSessionSecurity();
 
   useEffect(() => {
     if (!loading && !user) {
@@ -62,6 +66,12 @@ export function DashboardLayout() {
           {/* Header */}
           <header className="sticky top-0 z-40 flex h-14 items-center gap-4 border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 px-4">
             <SidebarTrigger className="-ml-1" />
+            
+            {/* HIPAA Compliance Badge */}
+            <Badge variant="outline" className="hidden sm:flex items-center gap-1 border-success/30 text-success bg-success/5">
+              <Shield className="h-3 w-3" />
+              HIPAA Secured
+            </Badge>
             
             <div className="flex-1" />
             
@@ -122,6 +132,14 @@ export function DashboardLayout() {
           </main>
         </SidebarInset>
       </div>
+      
+      {/* Session Timeout Warning Modal */}
+      <SessionTimeoutWarning
+        isOpen={showTimeoutWarning}
+        timeRemaining={timeRemaining}
+        onExtend={extendSession}
+        onLogout={handleSignOut}
+      />
     </SidebarProvider>
   );
 }

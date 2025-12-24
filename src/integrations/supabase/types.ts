@@ -62,6 +62,69 @@ export type Database = {
         }
         Relationships: []
       }
+      audit_logs: {
+        Row: {
+          action: string
+          created_at: string
+          id: string
+          ip_address: unknown
+          new_data: Json | null
+          old_data: Json | null
+          record_id: string | null
+          table_name: string
+          user_agent: string | null
+          user_id: string | null
+        }
+        Insert: {
+          action: string
+          created_at?: string
+          id?: string
+          ip_address?: unknown
+          new_data?: Json | null
+          old_data?: Json | null
+          record_id?: string | null
+          table_name: string
+          user_agent?: string | null
+          user_id?: string | null
+        }
+        Update: {
+          action?: string
+          created_at?: string
+          id?: string
+          ip_address?: unknown
+          new_data?: Json | null
+          old_data?: Json | null
+          record_id?: string | null
+          table_name?: string
+          user_agent?: string | null
+          user_id?: string | null
+        }
+        Relationships: []
+      }
+      failed_login_attempts: {
+        Row: {
+          attempt_time: string
+          email: string
+          id: string
+          ip_address: unknown
+          user_agent: string | null
+        }
+        Insert: {
+          attempt_time?: string
+          email: string
+          id?: string
+          ip_address?: unknown
+          user_agent?: string | null
+        }
+        Update: {
+          attempt_time?: string
+          email?: string
+          id?: string
+          ip_address?: unknown
+          user_agent?: string | null
+        }
+        Relationships: []
+      }
       profiles: {
         Row: {
           agency_id: string | null
@@ -133,11 +196,49 @@ export type Database = {
         }
         Relationships: []
       }
+      user_sessions: {
+        Row: {
+          created_at: string
+          device_info: string | null
+          expires_at: string
+          id: string
+          ip_address: unknown
+          is_active: boolean | null
+          last_activity: string
+          session_token: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          device_info?: string | null
+          expires_at: string
+          id?: string
+          ip_address?: unknown
+          is_active?: boolean | null
+          last_activity?: string
+          session_token: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          device_info?: string | null
+          expires_at?: string
+          id?: string
+          ip_address?: unknown
+          is_active?: boolean | null
+          last_activity?: string
+          session_token?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
     }
     Functions: {
+      check_account_lockout: { Args: { _email: string }; Returns: boolean }
+      cleanup_expired_sessions: { Args: never; Returns: undefined }
       get_user_agency: { Args: { _user_id: string }; Returns: string }
       has_role: {
         Args: {
@@ -147,6 +248,20 @@ export type Database = {
         Returns: boolean
       }
       is_admin_or_supervisor: { Args: { _user_id: string }; Returns: boolean }
+      log_audit_event: {
+        Args: {
+          _action: string
+          _new_data?: Json
+          _old_data?: Json
+          _record_id?: string
+          _table_name: string
+        }
+        Returns: string
+      }
+      log_phi_access: {
+        Args: { _record_id: string; _table_name: string }
+        Returns: undefined
+      }
     }
     Enums: {
       app_role: "admin" | "supervisor" | "caregiver" | "patient" | "family"

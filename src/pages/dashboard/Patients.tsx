@@ -97,7 +97,7 @@ export default function Patients() {
         <CardContent>
           <div className="space-y-4">
             {filteredPatients.map((patient) => (
-              <div key={patient.id} className="flex items-center justify-between p-4 rounded-lg border hover:bg-muted/50 transition-colors cursor-pointer">
+              <div key={patient.id} onClick={() => navigate(`/dashboard/patients/${patient.id}`)} className="flex items-center justify-between p-4 rounded-lg border hover:bg-muted/50 transition-colors cursor-pointer">
                 <div className="flex items-center gap-4">
                   <Avatar className="h-10 w-10">
                     <AvatarFallback className="bg-primary/10 text-primary">

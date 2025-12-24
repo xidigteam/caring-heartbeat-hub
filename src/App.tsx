@@ -34,6 +34,7 @@ import Reports from "./pages/dashboard/Reports";
 import Settings from "./pages/dashboard/Settings";
 import UserManagement from "./pages/admin/UserManagement";
 import AgencySettings from "./pages/admin/AgencySettings";
+import ClientDetail from "./pages/dashboard/ClientDetail";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -68,6 +69,7 @@ const App = () => (
               <Route path="schedule" element={<Schedule />} />
               <Route path="evv" element={<EVV />} />
               <Route path="patients" element={<Patients />} />
+              <Route path="patients/:id" element={<ClientDetail />} />
               <Route path="caregivers" element={<Caregivers />} />
               <Route path="documentation" element={<Documentation />} />
               <Route path="billing" element={<Billing />} />

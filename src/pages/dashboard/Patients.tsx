@@ -1,11 +1,11 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Badge } from '@/components/ui/badge';
 import { Avatar, AvatarFallback } from '@/components/ui/avatar';
 import { Users, Plus, Search, Phone, MapPin } from 'lucide-react';
-
 const patients = [
   { id: 1, name: 'John Smith', status: 'active', phone: '(555) 123-4567', address: '123 Oak Street, City', service: 'Home Health' },
   { id: 2, name: 'Mary Brown', status: 'active', phone: '(555) 234-5678', address: '456 Maple Ave, City', service: 'Personal Care' },
@@ -16,7 +16,7 @@ const patients = [
 
 export default function Patients() {
   const [searchQuery, setSearchQuery] = useState('');
-
+  const navigate = useNavigate();
   const filteredPatients = patients.filter(p => 
     p.name.toLowerCase().includes(searchQuery.toLowerCase())
   );
@@ -97,7 +97,7 @@ export default function Patients() {
         <CardContent>
           <div className="space-y-4">
             {filteredPatients.map((patient) => (
-              <div key={patient.id} className="flex items-center justify-between p-4 rounded-lg border hover:bg-muted/50 transition-colors cursor-pointer">
+              <div key={patient.id} onClick={() => navigate(`/dashboard/patients/${patient.id}`)} className="flex items-center justify-between p-4 rounded-lg border hover:bg-muted/50 transition-colors cursor-pointer">
                 <div className="flex items-center gap-4">
                   <Avatar className="h-10 w-10">
                     <AvatarFallback className="bg-primary/10 text-primary">

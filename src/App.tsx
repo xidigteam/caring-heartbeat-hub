@@ -7,7 +7,17 @@ import { AuthProvider } from "@/contexts/AuthContext";
 import { DashboardLayout } from "@/components/layout/DashboardLayout";
 import Auth from "./pages/Auth";
 import Dashboard from "./pages/Dashboard";
+import Schedule from "./pages/dashboard/Schedule";
+import EVV from "./pages/dashboard/EVV";
+import Patients from "./pages/dashboard/Patients";
+import Caregivers from "./pages/dashboard/Caregivers";
+import Documentation from "./pages/dashboard/Documentation";
+import Billing from "./pages/dashboard/Billing";
+import Messages from "./pages/dashboard/Messages";
+import Reports from "./pages/dashboard/Reports";
+import Settings from "./pages/dashboard/Settings";
 import UserManagement from "./pages/admin/UserManagement";
+import AgencySettings from "./pages/admin/AgencySettings";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -24,7 +34,17 @@ const App = () => (
             <Route path="/auth" element={<Auth />} />
             <Route path="/dashboard" element={<DashboardLayout />}>
               <Route index element={<Dashboard />} />
+              <Route path="schedule" element={<Schedule />} />
+              <Route path="evv" element={<EVV />} />
+              <Route path="patients" element={<Patients />} />
+              <Route path="caregivers" element={<Caregivers />} />
+              <Route path="documentation" element={<Documentation />} />
+              <Route path="billing" element={<Billing />} />
+              <Route path="messages" element={<Messages />} />
+              <Route path="reports" element={<Reports />} />
+              <Route path="settings" element={<Settings />} />
               <Route path="admin/users" element={<UserManagement />} />
+              <Route path="admin/agency" element={<AgencySettings />} />
             </Route>
             <Route path="*" element={<NotFound />} />
           </Routes>

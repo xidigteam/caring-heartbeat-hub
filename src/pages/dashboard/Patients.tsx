@@ -16,7 +16,7 @@ const patients = [
 
 export default function Patients() {
   const [searchQuery, setSearchQuery] = useState('');
-
+  const navigate = useNavigate();
   const filteredPatients = patients.filter(p => 
     p.name.toLowerCase().includes(searchQuery.toLowerCase())
   );

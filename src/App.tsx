@@ -7,6 +7,16 @@ import { AuthProvider } from "@/contexts/AuthContext";
 import { DashboardLayout } from "@/components/layout/DashboardLayout";
 import Landing from "./pages/Landing";
 import Auth from "./pages/Auth";
+import HousingStabilization from "./pages/solutions/HousingStabilization";
+import InterpretingTranslation from "./pages/solutions/InterpretingTranslation";
+import ElectronicVisitVerification from "./pages/solutions/ElectronicVisitVerification";
+import AutomatedBilling from "./pages/solutions/AutomatedBilling";
+import MentalHealthARMHS from "./pages/solutions/MentalHealthARMHS";
+import EIDBI from "./pages/solutions/EIDBI";
+import AdultDayCare from "./pages/solutions/AdultDayCare";
+import PrivateDutyNursing from "./pages/solutions/PrivateDutyNursing";
+import GroupHome from "./pages/solutions/GroupHome";
+import NEMT from "./pages/solutions/NEMT";
 import Dashboard from "./pages/Dashboard";
 import Schedule from "./pages/dashboard/Schedule";
 import EVV from "./pages/dashboard/EVV";
@@ -33,6 +43,16 @@ const App = () => (
           <Routes>
             <Route path="/" element={<Landing />} />
             <Route path="/auth" element={<Auth />} />
+            <Route path="/solutions/housing-stabilization" element={<HousingStabilization />} />
+            <Route path="/solutions/interpreting-translation" element={<InterpretingTranslation />} />
+            <Route path="/solutions/evv" element={<ElectronicVisitVerification />} />
+            <Route path="/solutions/automated-billing" element={<AutomatedBilling />} />
+            <Route path="/solutions/mental-health-armhs" element={<MentalHealthARMHS />} />
+            <Route path="/solutions/eidbi" element={<EIDBI />} />
+            <Route path="/solutions/adult-day-care" element={<AdultDayCare />} />
+            <Route path="/solutions/private-duty-nursing" element={<PrivateDutyNursing />} />
+            <Route path="/solutions/group-home" element={<GroupHome />} />
+            <Route path="/solutions/nemt" element={<NEMT />} />
             <Route path="/dashboard" element={<DashboardLayout />}>
               <Route index element={<Dashboard />} />
               <Route path="schedule" element={<Schedule />} />

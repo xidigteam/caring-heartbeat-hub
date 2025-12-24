@@ -131,7 +131,32 @@ export default function Landing() {
 
           <nav className="hidden md:flex items-center gap-8">
             <a href="#features" className="text-muted-foreground hover:text-foreground transition-colors">Features</a>
-            <a href="#solutions" className="text-muted-foreground hover:text-foreground transition-colors">Solutions</a>
+            <div className="relative group">
+              <button className="text-muted-foreground hover:text-foreground transition-colors flex items-center gap-1">
+                Solutions
+                <ChevronRight className="h-4 w-4 rotate-90 group-hover:rotate-[270deg] transition-transform" />
+              </button>
+              <div className="absolute top-full left-0 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-50">
+                <div className="bg-background border border-border rounded-lg shadow-elevated p-4 min-w-[600px] grid grid-cols-3 gap-4">
+                  <div className="space-y-2">
+                    <Link to="/solutions/housing-stabilization" className="block text-sm hover:text-primary transition-colors">Housing Stabilization Services</Link>
+                    <Link to="/solutions/interpreting-translation" className="block text-sm hover:text-primary transition-colors">Interpreting and Translation</Link>
+                    <Link to="/solutions/evv" className="block text-sm hover:text-primary transition-colors">Electronic Visit Verification</Link>
+                    <Link to="/solutions/automated-billing" className="block text-sm hover:text-primary transition-colors">Automated Billing</Link>
+                  </div>
+                  <div className="space-y-2">
+                    <Link to="/solutions/mental-health-armhs" className="block text-sm hover:text-primary transition-colors">Mental Health Services (ARMHS)</Link>
+                    <Link to="/solutions/eidbi" className="block text-sm hover:text-primary transition-colors">EIDBI</Link>
+                    <Link to="/solutions/adult-day-care" className="block text-sm hover:text-primary transition-colors">Adult Day Care</Link>
+                    <Link to="/solutions/private-duty-nursing" className="block text-sm hover:text-primary transition-colors">Private Duty Nursing</Link>
+                  </div>
+                  <div className="space-y-2">
+                    <Link to="/solutions/group-home" className="block text-sm hover:text-primary transition-colors">Group Home Software</Link>
+                    <Link to="/solutions/nemt" className="block text-sm hover:text-primary transition-colors">Non Emergency Medical Transportation</Link>
+                  </div>
+                </div>
+              </div>
+            </div>
             <a href="#testimonials" className="text-muted-foreground hover:text-foreground transition-colors">Testimonials</a>
             <a href="#pricing" className="text-muted-foreground hover:text-foreground transition-colors">Pricing</a>
           </nav>
